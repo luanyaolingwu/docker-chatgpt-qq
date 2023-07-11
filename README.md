@@ -1,6 +1,6 @@
-# 欢迎使用 `web-chatgpt-mirai-qq-bot-docker` 🎉
+# 欢迎使用 `web-chatgpt-qq-bot-docker` 🎉
 
-`web-chatgpt-mirai-qq-bot-docker` 是 [web-chatgpt-qq-bot](https://github.com/zmh-program/web-chatgpt-qq-bot) 项目的一个重要组成部分，专为您提供一键化部署以下项目的docker-compose文件：
+`web-chatgpt-qq-bot-docker` 是 [web-chatgpt-qq-bot](https://github.com/zmh-program/web-chatgpt-qq-bot) 项目的一个重要组成部分，专为您提供一键化部署以下项目的docker-compose文件：
 
 - [mamoe/mirai](https://github.com/mamoe/mirai)
 - [Mrs4s/go-cqhttp](https://github.com/Mrs4s/go-cqhttp)
