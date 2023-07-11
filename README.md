@@ -18,4 +18,11 @@
 
 此外，在WebUI中，我们提供了一键安装按钮，为您带来更为便捷的操作体验。
 
+## 开源协议
+
+[MIT](https://github.com/Cloxl/web-chatgp-qq-bot-docker/blob/main/LICENSE)
+
+## 代码统计
+
 ![web-chatgpt-qq-bot-docker stats](https://stats.deeptrain.net/repo/cloxl/web-chatgp-qq-bot-docker/?theme=light)
+
