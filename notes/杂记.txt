@@ -1,3 +1,67 @@
 #介于我还在学怎么用docker，继续咕咕~
 #参考自：
 #https://www.runoob.com/docker/docker-compose.html && https://yeasy.gitbook.io/docker_practice/
+
+#================
+
+version: '3.4'
+services:
+  gocqhttp:
+    image: ghcr.io/mrs4s/go-cqhttp:master
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "512k"
+    environment:
+      LANG: 'C.UTF-8'
+    volumes:
+      - ./gocqhttp/:/data/
+      - ./gocqhttp/docker-entrypoint.sh:/docker-entrypoint.sh
+  chatgpt:
+    image: lss233/chatgpt-mirai-qq-bot:browser-version
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "512k"
+    environment:
+      LANG: 'C.UTF-8'
+    ports:
+      - 8566:8566/tcp
+      - 8234:8234
+    volumes:
+      - ./config.cfg:/app/config.cfg
+      - ./data:/app/data
+      - ./presets:/app/presets
+      - ./fonts:/app/fonts
+  wechatbot:
+    image: lcjqyml/wechatbot:latest
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "512k"
+    volumes:
+      - ./wechat/my-wechat-bot.memory-card.json:/app/my-wechat-bot.memory-card.json
+  go-chatgpt-api:
+    container_name: go-chatgpt-api
+    image: linweiyuan/go-chatgpt-api
+    ports:
+      - 8123:8080
+    environment:
+      - GO_CHATGPT_API_PROXY=
+    restart: unless-stopped
+  qsign:
+    image: xzhouqd/qsign:8.9.63
+    ports:
+      - "8888:8080"  # {external_port}:{internal_port}
+    environment:
+      - PORT=8080  # {internal_port} 可选填，必须和ports里的internal_port一致，要改就必填
+      - COUNT=2  # {count} 可选填
+      - ANDROID_ID=xxxxxxxxxxxxx  必填！到你的device.json里找！
+    container_name: qsign
+    restart: always
+#别人写的，确信
+
+#===============
